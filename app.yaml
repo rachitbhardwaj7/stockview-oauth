@@ -1,15 +1,13 @@
-runtime: nodejs18
-env: standard
-instance_class: F1
+runtime: nodejs20
 
 env_variables:
   PORT: "8080"
   NODE_ENV: "production"
-
-handlers:
-- url: /.*
-  script: auto
+  GOOGLE_CLIENT_ID: "${GOOGLE_CLIENT_ID}"
+  GOOGLE_CLIENT_SECRET: "${GOOGLE_CLIENT_SECRET}"
+  SESSION_SECRET: "${SESSION_SECRET}"
+  CALLBACK_URL: "https://qwiklabs-gcp-02-7e7aa0ad6bdb.appspot.com/auth/google/callback"
 
 automatic_scaling:
   min_instances: 1
-  max_instances: 10
+  max_instances: 5
