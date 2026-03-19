@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - StockView</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">📈 StockView</h1>
+      <div class="nav-user">
+        <img src="<%= user.photo %>" alt="Profile" class="profile-pic">
+        <span class="user-name"><%= user.displayName %></span>
+        <a href="/logout" class="btn-logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="dashboard">
+      <div class="welcome-header">
+        <h2>Welcome back, <%= user.displayName %>! 👋</h2>
+        <p>Email: <%= user.email %></p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Portfolio Value</h3>
+          <p class="stat-value">$128,450.50</p>
+          <p class="stat-change positive">↑ +2.34%</p>
+        </div>
+        <div class="stat-card">
+          <h3>Today's Gain</h3>
+          <p class="stat-value">$2,450.00</p>
+          <p class="stat-change positive">↑ +1.95%</p>
+        </div>
+        <div class="stat-card">
+          <h3>Watchlist Items</h3>
+          <p class="stat-value">6</p>
+          <p class="stat-change">Active stocks</p>
+        </div>
+        <div class="stat-card">
+          <h3>Account Age</h3>
+          <p class="stat-value">45</p>
+          <p class="stat-change">days</p>
+        </div>
+      </div>
+
+      <div class="stocks-section">
+        <h2>📊 Market Watch</h2>
+        <table class="stocks-table" id="stocksTable">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Company</th>
+              <th>Price</th>
+              <th>Change</th>
+              <th>% Change</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="stocksBody">
+            <tr>
+              <td colspan="6" class="loading">Loading stocks...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="chart-section">
+        <h2>📈 Portfolio Performance</h2>
+        <div class="chart-placeholder">
+          <p>📊 Real-time charts would load here in production</p>
+          <p>Current: Mock data with 6 tracked stocks</p>
+        </div>
+      </div>
+
+      <div class="user-info-section">
+        <h3>🔐 Your OAuth Session</h3>
+        <div class="info-display">
+          <p><strong>Authenticated via:</strong> Google OAuth 2.0</p>
+          <p><strong>User ID:</strong> <code><%= user.id %></code></p>
+          <p><strong>Email:</strong> <code><%= user.email %></code></p>
+          <p><strong>Session Status:</strong> <span class="status-active">✓ Active</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 StockView - OAuth Lab Assignment Demo</p>
+  </footer>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
